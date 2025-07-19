@@ -26,7 +26,7 @@ const AgentAuth = () => {
       const endpoint = isLogin
         ? "/api/auth/agent/login"
         : "/api/auth/agent/register";
-      const response = await fetch(`${BACKEND_URL}/${endpoint}`, {
+      const response = await fetch(`${BACKEND_URL}${endpoint}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
