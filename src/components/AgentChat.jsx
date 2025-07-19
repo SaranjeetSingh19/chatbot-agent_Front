@@ -7,6 +7,7 @@ import { useSocket } from "../context/SocketContext";
 import { io } from "socket.io-client";
 
 const WEBSOCKET_URL = import.meta.env.VITE_WEBSOCKET_URL;
+ const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 const SOCKET_SERVER_URL = WEBSOCKET_URL;
 
 const AgentChat = () => {
@@ -128,7 +129,7 @@ const AgentChat = () => {
     socket.emit("joinRoom", { username: selectedUser.username });
 
     fetch(
-      `${SOCKET_SERVER_URL}/api/messages/history` +
+      `${BACKEND_URL}/api/messages/history` +
         `?user=${encodeURIComponent(selectedUser?.username)}` +
         `&agent=${encodeURIComponent(agent?.username)}`
     )
